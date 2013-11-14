@@ -52,10 +52,9 @@ void graphicsManager::display(void){
     
 	timer=glutGet(GLUT_ELAPSED_TIME);
 	if (timer - timebase > 1000) {
-		sprintf(s,"Lighthouse3D - FPS:%4.2f",
-                frame*1000.0/(timer-timebase));
-        std::cout << "FPS : "<< frame*1000.0/(timer-timebase)<<std::endl;
-		timebase = timer;
+		sprintf(s,"Pheonix - FPS:%4.2f",frame*1000.0/(timer-timebase));
+        glutSetWindowTitle(s);
+        timebase = timer;
 		frame = 0;
 	}
 
@@ -64,9 +63,8 @@ void graphicsManager::display(void){
     glVertex3f(-2.0f,-2.0f, 0.0f);
     glVertex3f( 2.0f, 0.0f, 0.0);
     glVertex3f( 0.0f, 2.0f, 0.0);
-    //std::cout << frame << std::endl;
-	glEnd();
-    	angle+=0.9f;
+    glEnd();
+    angle+=0.9f;
     
 	glutSwapBuffers();
 }
